@@ -1,0 +1,60 @@
+# Test Configuration - PostgreSQL Integration Tests
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springdb
+    driver-class-name: org.postgresql.Driver
+    username: springuser
+    password: springpass
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+          batch_size: 20
+        hbm2ddl:
+          jdbc_metadata_extraction_strategy: individually
+        order_inserts: true
+        order_updates: true
+        globally_quoted_identifiers: false
+  
+  sql:
+    init:
+      mode: never
+      continue-on-error: true
+  
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+
+# Server Configuration for Integration Tests
+server:
+  port: 0
+
+# JWT Configuration
+quorion:
+  b2b:
+    jwt:
+      secret: "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970"
+      access-token-expiration: 3600000
+      refresh-token-expiration: 604800000
+
+# Logging
+logging:
+  level:
+    com.quorion.b2b: DEBUG
+    com.quorion.b2b.security: INFO
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.springframework.context: WARN
+    org.springframework.security: DEBUG
+
