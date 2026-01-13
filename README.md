@@ -4,7 +4,7 @@
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A comprehensive Spring Boot implementation of the B2B distributor buyer-seller negotiation system. This is a full Java/Spring Boot conversion of the original Django REST API project.
+A comprehensive Spring Boot implementation of the B2B distributor buyer-seller negotiation system.
 
 ## Table of Contents
 
@@ -391,18 +391,6 @@ java -jar target/quorion-b2b-api-1.0.0-SNAPSHOT.jar
 - Lead forwarding creates child leads
 - Parent-child relationship tracking
 - Distributor-specific actions
-
-## Comparison with Django Version
-
-| Feature | Django Version | Spring Boot Version |
-|---------|---------------|---------------------|
-| State Machine | django-fsm | Custom enum-based FSM |
-| ORM | Django ORM | Spring Data JPA (Hibernate) |
-| Validation | Django Forms/Serializers | Bean Validation (JSR-380) |
-| API Documentation | DRF Browsable API | SpringDoc OpenAPI (Swagger) |
-| Testing | pytest | JUnit 5 + Mockito |
-| Database | PostgreSQL/SQLite | PostgreSQL/H2 |
-| Caching | Django Cache | Spring Cache |
 
 ## Roadmap
 
